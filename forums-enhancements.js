@@ -55,7 +55,7 @@ window.cpForumsEnhancements.modifyElementForPath(
 		// Note, the category description text comes from this thread:
 		// https://forums.classicpress.net/t/about-the-projects-category/65
 		el.innerHTML = (
-			'<blockquote style="font-weight: bold; margin: 0">'
+			'<blockquote style="font-weight: bold; margin: 0; border-width: 0; background: #f3d9f4">'
 			+ el.innerHTML.replace(/<a/, '<br><a')
 			+ '</blockquote>'
 		);
@@ -71,7 +71,7 @@ window.cpForumsEnhancements.modifyElementForPath(
 			'For a list of areas where you can help out, see:'
 			+ '<br><a href="/t/currently-active-projects/3630">Currently Active Projects</a>'
 		);
-		toAdd.setAttribute('style', 'font-weight: bold; margin: 0');
+		toAdd.setAttribute('style', 'font-weight: bold; margin: 0; border-color: #652d90; background: #f3d9f4');
 		el.parentNode.insertBefore(toAdd, el);
 	}
 );
