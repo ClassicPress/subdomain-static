@@ -50,7 +50,7 @@ window.cpForumsEnhancments = (function() {
 
 window.cpForumsEnhancments.modifyElementForPath(
 	'/',
-	'tr[data-category-id=15] > td.category .category-description',
+	'tr[data-category-id="15"] > td.category .category-description',
 	function(el) {
 		el.innerHTML = (
 			'<blockquote style="font-weight: bold; margin: 0">'
