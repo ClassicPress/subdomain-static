@@ -31,11 +31,21 @@ window.cpForumsEnhancements = (function() {
 		modificationsWaiting: [],
 
 		modifyElementForPath: function(path, selector, callback) {
-			this.modifications.push({
-				path: path,
-				selector: selector,
-				callback: callback,
-			});
+			if (Array.isArray(path)) {
+				path.forEach(function(p) {
+					this.modifications.push({
+						path: p,
+						selector: selector,
+						callback: callback,
+					});
+				}.bind(this));
+			} else {
+				this.modifications.push({
+					path: path,
+					selector: selector,
+					callback: callback,
+				});
+			}
 		},
 	};
 
@@ -63,7 +73,15 @@ window.cpForumsEnhancements.modifyElementForPath(
 );
 
 window.cpForumsEnhancements.modifyElementForPath(
-	'/c/projects/15',
+	[
+		// These links usually, but not always, redirect to the canonical URL.
+		// See https://forums.classicpress.net/t/make-topic-sticky/3711 which
+		// links to `/c/projects/` - clicking this link doesn't redirect.
+		'/c/projects',
+		'/c/projects/',
+		// This is the canonical URL for the category.
+		'/c/projects/15',
+	],
 	'#header-list-area > .contents',
 	function(el) {
 		var toAdd = document.createElement('blockquote');
