@@ -54,7 +54,7 @@ window.cpForumsEnhancments.modifyElementForPath(
 	function(el) {
 		el.innerHTML = (
 			'<blockquote style="font-weight: bold; margin: 0">'
-			+ el.innerHTML.replace(/<a/, '<br><a');
+			+ el.innerHTML.replace(/<a/, '<br><a')
 			+ '</blockquote>'
 		);
 	}
