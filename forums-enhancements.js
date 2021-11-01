@@ -11,7 +11,7 @@ window.cpForumsEnhancments = (function() {
 					if (m.path === this.currentPath) {
 						this.modificationsWaiting.push(m);
 					}
-				});
+				}.bind(this));
 			}
 
 			this.modificationsWaiting = this.modificationsWaiting.filter(function(m) {
@@ -22,7 +22,7 @@ window.cpForumsEnhancments = (function() {
 				}
 				m.callback.call(this, el);
 				return false;
-			});
+			}.bind(this));
 		},
 
 		currentPath: null,
