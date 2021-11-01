@@ -1,4 +1,4 @@
-window.cpForumsEnhancments = (function() {
+window.cpForumsEnhancements = (function() {
 	var toReturn = {
 		init: function() {
 			setInterval(this.interval, 750);
@@ -48,7 +48,7 @@ window.cpForumsEnhancments = (function() {
 	return toReturn;
 })();
 
-window.cpForumsEnhancments.modifyElementForPath(
+window.cpForumsEnhancements.modifyElementForPath(
 	'/',
 	'tr[data-category-id="15"] > td.category .category-description',
 	function(el) {
@@ -62,7 +62,7 @@ window.cpForumsEnhancments.modifyElementForPath(
 	}
 );
 
-window.cpForumsEnhancments.modifyElementForPath(
+window.cpForumsEnhancements.modifyElementForPath(
 	'/c/projects/15',
 	'#header-list-area > .contents',
 	function(el) {
@@ -76,4 +76,4 @@ window.cpForumsEnhancments.modifyElementForPath(
 	}
 );
 
-window.cpForumsEnhancments.init();
+window.cpForumsEnhancements.init();
