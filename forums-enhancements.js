@@ -52,6 +52,8 @@ window.cpForumsEnhancments.modifyElementForPath(
 	'/',
 	'tr[data-category-id="15"] > td.category .category-description',
 	function(el) {
+		// Note, the category description text comes from this thread:
+		// https://forums.classicpress.net/t/about-the-projects-category/65
 		el.innerHTML = (
 			'<blockquote style="font-weight: bold; margin: 0">'
 			+ el.innerHTML.replace(/<a/, '<br><a')
