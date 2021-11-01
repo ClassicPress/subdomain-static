@@ -1,16 +1,11 @@
 window.cpForumsEnhancments = (function() {
 	var toReturn = {
 		init: function() {
-			console.log('init', this);
-
 			setInterval(this.interval, 750);
 		},
 
 		interval: function() {
-			console.log('interval', this);
-
 			if (this.currentPath !== document.location.pathname) {
-				console.log('path change', document.location.pathname);
 				this.currentPath = document.location.pathname;
 				this.modifications.forEach(function(m) {
 					if (m.path === this.currentPath) {
@@ -36,6 +31,11 @@ window.cpForumsEnhancments = (function() {
 		modificationsWaiting: [],
 
 		modifyElementForPath: function(path, selector, callback) {
+			this.modifications.push({
+				path: path,
+				selector: selector,
+				callback: callback,
+			});
 		},
 	};
 
@@ -54,9 +54,23 @@ window.cpForumsEnhancments.modifyElementForPath(
 	function(el) {
 		el.innerHTML = (
 			'<blockquote style="font-weight: bold; margin: 0">'
-			+ el.innerHTML
+			+ el.innerHTML.replace(/<a/, '<br><a');
 			+ '</blockquote>'
 		);
+	}
+);
+
+window.cpForumsEnhancments.modifyElementForPath(
+	'/c/projects/15',
+	'#header-list-area > .contents',
+	function(el) {
+		var toAdd = document.createElement('blockquote');
+		toAdd.innerHTML = (
+			'For a list of areas where you can help out, see:'
+			+ '<br><a href="/t/currently-active-projects/3630">Currently Active Projects</a>'
+		);
+		toAdd.setAttribute('style', 'font-weight: bold; margin: 0');
+		el.parentNode.insertBefore(toAdd, el);
 	}
 );
 
