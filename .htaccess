@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RedirectMatch 302 \
+	^/?$ \
+	https://github.com/ClassicPress/subdomain-static
