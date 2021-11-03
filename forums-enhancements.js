@@ -33,11 +33,7 @@ window.cpForumsEnhancements = (function() {
 		modifyElementForPath: function(path, selector, callback) {
 			if (Array.isArray(path)) {
 				path.forEach(function(p) {
-					this.modifications.push({
-						path: p,
-						selector: selector,
-						callback: callback,
-					});
+					this.modifyElementForPath(p, selector, callback);
 				}.bind(this));
 			} else {
 				this.modifications.push({
